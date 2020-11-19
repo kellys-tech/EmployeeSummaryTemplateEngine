@@ -12,17 +12,33 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 const Employee = require("./lib/Employee");
 
-//function to prompt questions
+//function to prompt Employee questions
 function questEmployee () {
     inquirer .prompt(employeeQuestions)
-    .then (function ([emplName, emplID, emplEmail]){
+    .then (function ([emplName, emplId, emplEmail]){
         const employee = new Employee (
             emplName,
-            emplID,
+            emplId,
             emplEmail
         );
         console.log(employee);
         team.push(employee);
+        switchStatement();
+    });
+}
+
+//function to prompt Engineer questions
+function questEngineer () {
+    inquirer.prompt(engineerQuestions)
+    .then (function ([engName, engId, engEmail, engGithub]) {
+        const engineer = new Engineer (
+            engName,
+            engId,
+            engEmail,
+            engGithub,
+        );
+        console.log(engineer);
+        team.push(engineer);
         switchStatement();
     });
 }
