@@ -43,6 +43,21 @@ function questEngineer () {
     });
 }
 
+//function to prompt Intern questions
+function questIntern () {
+    inquirer.prompt(internquestions)
+    .then (function ([intName, intId, intEmail, intSchool]) {
+        const intern = new Intern (
+            intName,
+            intId,
+            intEmail,
+            intSchool,
+        );
+        console.log(intern);
+        team.push(intern);
+        switchStatement();
+    });
+}
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
