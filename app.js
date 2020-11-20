@@ -50,6 +50,28 @@ const questEngineer = [{
     name: "engGithub",
     message: "Enter Engineer Github link",
 }];
+//Intern questions aray
+const questIntern = [{
+    type: "input",
+    name: "intName",
+    message: "Enter Intern Name",
+},
+{
+    type: "input",
+    name: "intId",
+    messsage: "Enter Intern ID",
+},
+{
+    type: "input",
+    name: "intEmail",
+    message: "Enter Intern Email",
+},
+{
+    type: "input",
+    name: "intSchool",
+    message: "Enter Intern School"
+}];
+
 
 //function to prompt Employee questions
 function questEmployee() {
