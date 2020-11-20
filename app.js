@@ -29,6 +29,27 @@ const questEmployee = [{
     message: "Enter Employee Email",
 },
 ];
+//Engineer questions array 
+const questEngineer = [{
+    type: "input",
+    name: "engName",
+    message: "Enter Engineer Name",
+},
+{
+    type: "input",
+    name: "engId",
+    message: "Enter Engineer ID",
+},
+{
+    type: "input",
+    name: "engEmail",
+    message: "Enter Engineer Email",
+},
+{
+    type: "input",
+    name: "engGithub",
+    message: "Enter Engineer Github link",
+}];
 
 //function to prompt Employee questions
 function questEmployee() {
