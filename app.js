@@ -12,67 +12,85 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 const Employee = require("./lib/Employee");
 
+//Employee questions array
+const questEmployee = [{
+    type: "input",
+    name: "emplName",
+    message: "Enter Employee Name", 
+},
+{
+    type: "input",
+    name: "emplId",
+    message: "Enter Employee ID",
+},
+{
+    type: "input",
+    name: "emplEmail",
+    message: "Enter Employee Email",
+},
+];
+
 //function to prompt Employee questions
 function questEmployee() {
-    inquirer .prompt(employeeQuestions)
-    .then (function ([emplName, emplId, emplEmail]){
-        const employee = new Employee (
-            emplName,
-            emplId,
-            emplEmail
-        );
-        console.log(employee);
-        team.push(employee);
-        switchStatement();
-    });
+    inquirer.prompt(employeeQuestions)
+        .then(function ([emplName, emplId, emplEmail]) {
+            const employee = new Employee(
+                emplName,
+                emplId,
+                emplEmail
+            );
+            console.log(employee);
+            team.push(employee);
+            switchStatement();
+        });
 }
 
 //function to prompt Engineer questions
 function questEngineer() {
     inquirer.prompt(engineerQuestions)
-    .then (function ([engName, engId, engEmail, engGithub]) {
-        const engineer = new Engineer (
-            engName,
-            engId,
-            engEmail,
-            engGithub,
-        );
-        console.log(engineer);
-        team.push(engineer);
-        switchStatement();
-    });
+        .then(function ([engName, engId, engEmail, engGithub]) {
+            const engineer = new Engineer(
+                engName,
+                engId,
+                engEmail,
+                engGithub,
+            );
+            console.log(engineer);
+            team.push(engineer);
+            switchStatement();
+        });
 }
 
 //function to prompt Intern questions
 function questIntern() {
     inquirer.prompt(intquestions)
-    .then (function ([intName, intId, intEmail, intSchool]) {
-        const intern = new Intern (
-            intName,
-            intId,
-            intEmail,
-            intSchool,
-        );
-        console.log(intern);
-        team.push(intern);
-        switchStatement();
-    });
+        .then(function ([intName, intId, intEmail, intSchool]) {
+            const intern = new Intern(
+                intName,
+                intId,
+                intEmail,
+                intSchool,
+            );
+            console.log(intern);
+            team.push(intern);
+            switchStatement();
+        });
 }
 
 //function to prompt Manager questions
 function questMgr() {
     inquirer.prompt(mgrquestions)
-    .then (function ([mgrName, mgrId, mgrEmail, mgrOfficeNumber]) {
-        const manager = new Manager (
-            mgrName,
-            mgrId,
-            mgrEmail,
-            mgrOfficeNumber,
-        );
-        console.log(manager);
-        team.push(manager);
-        switchStatement;
-    });
+        .then(function ([mgrName, mgrId, mgrEmail, mgrOfficeNumber]) {
+            const manager = new Manager(
+                mgrName,
+                mgrId,
+                mgrEmail,
+                mgrOfficeNumber,
+            );
+            console.log(manager);
+            team.push(manager);
+            switchStatement;
+        });
 }
 
 // Write code to use inquirer to gather information about the development team members,
