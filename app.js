@@ -50,7 +50,7 @@ const questEngineer = [{
     name: "engGithub",
     message: "Enter Engineer Github link",
 }];
-//Intern questions aray
+//Intern questions array
 const questIntern = [{
     type: "input",
     name: "intName",
@@ -71,7 +71,27 @@ const questIntern = [{
     name: "intSchool",
     message: "Enter Intern School"
 }];
-
+//Manager questions array
+const questManager = [{
+    type: "input",
+    name: "mgrName",
+    message: "Enter Manager Name",
+},
+{
+    type: "input",
+    name: "mgrId",
+    message: "Enter Manager ID",
+},
+{
+    type: "input",
+    name: "mgrEmail",
+    message: "Enter Manager Email",
+},
+{
+    type: "input",
+    name: "mgrOfficeNumber",
+    message: "Enter Manager Office Number",
+}];
 
 //function to prompt Employee questions
 function questEmployee() {
