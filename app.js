@@ -183,6 +183,15 @@ function questManager() {
         });
 }
 
+//render site function
+function renderSite() {
+    if(lfs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR) {
+            fs.writeFileSync(outputPath, render(team), "UTF8")
+        }
+    }
+}
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
