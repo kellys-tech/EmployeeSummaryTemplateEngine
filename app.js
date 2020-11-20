@@ -32,7 +32,7 @@ function emplRole() {
         case "Manager":
             questManager();
         break;
-        case "Done";
+        case "Done":
             renderSite();
         break;
     }
