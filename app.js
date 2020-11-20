@@ -13,7 +13,7 @@ const render = require("./lib/htmlRenderer");
 const Employee = require("./lib/Employee");
 
 //function to prompt Employee questions
-function questEmployee () {
+function questEmployee() {
     inquirer .prompt(employeeQuestions)
     .then (function ([emplName, emplId, emplEmail]){
         const employee = new Employee (
@@ -28,7 +28,7 @@ function questEmployee () {
 }
 
 //function to prompt Engineer questions
-function questEngineer () {
+function questEngineer() {
     inquirer.prompt(engineerQuestions)
     .then (function ([engName, engId, engEmail, engGithub]) {
         const engineer = new Engineer (
@@ -44,8 +44,8 @@ function questEngineer () {
 }
 
 //function to prompt Intern questions
-function questIntern () {
-    inquirer.prompt(internquestions)
+function questIntern() {
+    inquirer.prompt(intquestions)
     .then (function ([intName, intId, intEmail, intSchool]) {
         const intern = new Intern (
             intName,
@@ -56,6 +56,22 @@ function questIntern () {
         console.log(intern);
         team.push(intern);
         switchStatement();
+    });
+}
+
+//function to prompt Manager questions
+function questMgr() {
+    inquirer.prompt(mgrquestions)
+    .then (function ([mgrName, mgrId, mgrEmail, mgrOfficeNumber]) {
+        const manager = new Manager (
+            mgrName,
+            mgrId,
+            mgrEmail,
+            mgrOfficeNumber,
+        );
+        console.log(manager);
+        team.push(manager);
+        switchStatement;
     });
 }
 
