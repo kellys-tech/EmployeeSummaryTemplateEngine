@@ -12,6 +12,33 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 const Employee = require("./lib/Employee");
 
+//switch statement to select Employee role
+function emplRole() {
+    inquirer.prompt ([ { 
+        type: "list",
+        message: "Select Employee Role",
+        choices: ["Engineer", "Intern", "Manager", "Done"],
+        name: "switch",
+    },
+])
+.then (function (answer) {
+    switch (answer.switch) {
+        case "Engineer": 
+            questEngineer();
+        break;
+        case "Intern":
+            questIntern();
+        break;
+        case "Manager":
+            questManager();
+        break;
+        case "Done";
+            renderSite();
+        break;
+    }
+}
+)}
+
 //Employee questions array
 const questEmployee = [{
     type: "input",
@@ -104,7 +131,7 @@ function questEmployee() {
             );
             console.log(employee);
             team.push(employee);
-            switchStatement();
+            emplRole();
         });
 }
 
@@ -120,7 +147,7 @@ function questEngineer() {
             );
             console.log(engineer);
             team.push(engineer);
-            switchStatement();
+            emplRole();
         });
 }
 
@@ -136,12 +163,12 @@ function questIntern() {
             );
             console.log(intern);
             team.push(intern);
-            switchStatement();
+            emplRole();
         });
 }
 
 //function to prompt Manager questions
-function questMgr() {
+function questManager() {
     inquirer.prompt(mgrquestions)
         .then(function ([mgrName, mgrId, mgrEmail, mgrOfficeNumber]) {
             const manager = new Manager(
@@ -152,7 +179,7 @@ function questMgr() {
             );
             console.log(manager);
             team.push(manager);
-            switchStatement;
+            emplRole;
         });
 }
 
