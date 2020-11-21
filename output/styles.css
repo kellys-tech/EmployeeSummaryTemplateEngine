@@ -1,0 +1,14 @@
+.jumbotron {
+    background-color: lightsteelblue;
+}
+.card {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+.card-header {
+    background-color: rgb(220, 220, 220);
+}
+.card-body {
+    background-color: rgb(247, 247, 247);
+}
