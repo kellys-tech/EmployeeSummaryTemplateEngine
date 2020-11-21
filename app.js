@@ -5,6 +5,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const team = [];
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -40,7 +41,7 @@ function emplRole() {
 )}
 
 //Employee questions array
-const questEmployee = [{
+const employeeQuestions = [{
     type: "input",
     name: "emplName",
     message: "Enter Employee Name", 
@@ -57,7 +58,7 @@ const questEmployee = [{
 },
 ];
 //Engineer questions array 
-const questEngineer = [{
+const engineerQuestions = [{
     type: "input",
     name: "engName",
     message: "Enter Engineer Name",
@@ -78,7 +79,7 @@ const questEngineer = [{
     message: "Enter Engineer Github link",
 }];
 //Intern questions array
-const questIntern = [{
+const intquestions = [{
     type: "input",
     name: "intName",
     message: "Enter Intern Name",
@@ -99,7 +100,7 @@ const questIntern = [{
     message: "Enter Intern School"
 }];
 //Manager questions array
-const questManager = [{
+const mgrquestions = [{
     type: "input",
     name: "mgrName",
     message: "Enter Manager Name",
@@ -123,11 +124,11 @@ const questManager = [{
 //function to prompt Employee questions
 function questEmployee() {
     inquirer.prompt(employeeQuestions)
-        .then(function ([emplName, emplId, emplEmail]) {
+        .then(function (emplAnswers) {
             const employee = new Employee(
-                emplName,
-                emplId,
-                emplEmail
+                emplAnswers.emplName,
+                emplAnswers.emplId,
+                emplAnswers.emplEmail
             );
             console.log(employee);
             team.push(employee);
@@ -138,12 +139,12 @@ function questEmployee() {
 //function to prompt Engineer questions
 function questEngineer() {
     inquirer.prompt(engineerQuestions)
-        .then(function ([engName, engId, engEmail, engGithub]) {
+        .then(function (engineerAnswers) {
             const engineer = new Engineer(
-                engName,
-                engId,
-                engEmail,
-                engGithub,
+                engineerAnswers.engName,
+                engineerAnswers.engId,
+                engineerAnswers.engEmail,
+                engineerAnswers.engGithub,
             );
             console.log(engineer);
             team.push(engineer);
@@ -154,12 +155,12 @@ function questEngineer() {
 //function to prompt Intern questions
 function questIntern() {
     inquirer.prompt(intquestions)
-        .then(function ([intName, intId, intEmail, intSchool]) {
+        .then(function (internAnswers) {
             const intern = new Intern(
-                intName,
-                intId,
-                intEmail,
-                intSchool,
+                internAnswers.intName,
+                internAnswers.intId,
+                internAnswers.intEmail,
+                internAnswers.intSchool,
             );
             console.log(intern);
             team.push(intern);
@@ -170,29 +171,29 @@ function questIntern() {
 //function to prompt Manager questions
 function questManager() {
     inquirer.prompt(mgrquestions)
-        .then(function ([mgrName, mgrId, mgrEmail, mgrOfficeNumber]) {
+        .then(function (mgrAnswers) {
             const manager = new Manager(
-                mgrName,
-                mgrId,
-                mgrEmail,
-                mgrOfficeNumber,
+                mgrAnswers.mgrName,
+                mgrAnswers.mgrId,
+                mgrAnswers.mgrEmail,
+                mgrAnswers.mgrOfficeNumber,
             );
             console.log(manager);
             team.push(manager);
-            emplRole;
+            emplRole();
         });
 }
 
 //render site function
 function renderSite() {
-    if(lfs.existsSync(OUTPUT_DIR)) {
-        fs.mkdirSync(OUTPUT_DIR) {
+    // if(lfs.existsSync(OUTPUT_DIR)) {
+        // fs.mkdirSync(OUTPUT_DIR) {
             fs.writeFileSync(outputPath, render(team), "UTF8")
-        }
-    }
+        // }
+    // }
 }
 
-switchStatement();
+emplRole();
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
